@@ -1,0 +1,81 @@
+@import "tailwindcss";
+
+@theme {
+  --color-sand-50: #fdfaf4;
+  --color-sand-100: #f8f0e1;
+  --color-sand-200: #efe1c6;
+  --color-sand-300: #e3cda2;
+  --color-savanna-400: #e0964a;
+  --color-savanna-500: #c97b2a;
+  --color-savanna-600: #ad6520;
+  --color-savanna-700: #8c4f18;
+  --color-forest-600: #2a6b4f;
+  --color-forest-700: #1f4d3a;
+  --color-forest-800: #173a2c;
+  --color-forest-900: #0f2a20;
+  --color-ocean-400: #3ab7d4;
+  --color-ocean-500: #1a9bb8;
+  --color-ocean-600: #147c94;
+  --color-ta: #34e0a1;
+  --color-ta-dark: #00aa6c;
+  --color-mpesa: #3fb54a;
+  --color-mpesa-dark: #2e8f37;
+  --color-visa: #1a1f71;
+  --font-display: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif;
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-sand-50);
+  color: #1c1917;
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.texture-dots {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+  background-size: 18px 18px;
+}
+
+.input {
+  @apply w-full rounded-xl border border-stone-300 bg-white px-4 py-3 text-base text-stone-900 placeholder:text-stone-400 focus:border-savanna-500 focus:outline-none focus:ring-2 focus:ring-savanna-500/30 disabled:cursor-not-allowed disabled:bg-stone-100;
+}
+
+.label {
+  @apply mb-1.5 block text-sm font-medium text-stone-700;
+}
+
+.btn-primary {
+  @apply inline-flex items-center justify-center gap-2 rounded-full bg-savanna-500 px-6 py-3 text-base font-semibold text-white shadow-lg shadow-savanna-500/30 transition hover:bg-savanna-600 focus:outline-none focus:ring-2 focus:ring-savanna-500/40 disabled:cursor-not-allowed disabled:opacity-60;
+}
+
+.btn-secondary {
+  @apply inline-flex items-center justify-center gap-2 rounded-full border border-stone-300 bg-white px-6 py-3 text-base font-semibold text-stone-800 transition hover:border-stone-400 hover:bg-stone-50 focus:outline-none focus:ring-2 focus:ring-stone-300 disabled:cursor-not-allowed disabled:opacity-60;
+}
+
+@keyframes pulse-ring {
+  0% {
+    transform: scale(0.9);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1.6);
+    opacity: 0;
+  }
+}
+
+.pulse-ring::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  border: 2px solid currentColor;
+  animation: pulse-ring 1.6s ease-out infinite;
+}
